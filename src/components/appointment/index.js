@@ -4,6 +4,7 @@ import "./styles.scss";
 import Header from "./Header"
 import Empty from "./Empty"
 import Show from "./Show"
+import Confirm from './Confirm';
 
 export default function Appointment(props) {
   return (
@@ -11,6 +12,7 @@ export default function Appointment(props) {
       <Header time={props.time} />
       <Empty />
       <Show />
+      <Confirm />
     </article>
   );
 }
