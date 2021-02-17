@@ -10,15 +10,22 @@ import Error from './Error';
 import Form from './Form';
 
 export default function Appointment(props) {
+  let display;
+  if (!props.interview) {
+    display = <Empty /> 
+  } else {
+    display = (
+      <Show 
+        student={props.interview.student}
+        interviewer={props.interview.interviewer.name}
+      />
+    )
+  }
   return (
     <article className="appointment">
       <Header time={props.time} />
-      <Empty />
-      <Show />
-      <Confirm />
-      <Status />
-      <Error />
-      <Form />
+      { display }
+      
     </article>
   );
 }

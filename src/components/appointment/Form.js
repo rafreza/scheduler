@@ -15,6 +15,11 @@ export default function Form(props) {
     reset();
     props.onCancel();
   }
+
+  function save() {
+    props.onSave(name, interviewer);
+    reset();
+  }
   function onChange(event) {
     setName(event.target.value);
   }
@@ -46,7 +51,7 @@ export default function Form(props) {
           <Button danger onClick={cancel}>
             Cancel
           </Button>
-          <Button confirm onClick={props.onSave}>
+          <Button confirm onClick={save}>
             Save
           </Button>
         </section>
