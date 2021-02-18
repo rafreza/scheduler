@@ -72,10 +72,7 @@ const appointments = [
 const schedule = appointments.map((appointment) => {
   return (
     <Appointment
-      key={appointment.id}
-      id={appointment.id}
-      time={appointment.time}
-      interview={appointment.interview}
+      key={appointment.id} {...appointment}
     />
   );
 });
