@@ -9,19 +9,19 @@ import Show from "./Show";
 export default function Appointment(props) {
   let display;
   if (!props.interview) {
-    display = <Empty /> 
+    display = <Empty />; 
   } else {
     display = (
       <Show 
         student={props.interview.student}
         interviewer={props.interview.interviewer.name}
       />
-    )
+    );
   }
   return (
     <article className="appointment">
       <Header time={props.time} />
-      { display }
+      {display}
       
     </article>
   );

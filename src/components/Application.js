@@ -16,7 +16,7 @@ export default function Application(props) {
     interviewers: {}
   });
 
-  const setDay = day => setState({ ...state, day });
+  const setDay = (day) => setState({ ...state, day });
   
   useEffect(() => {
     Promise.all([
@@ -67,7 +67,7 @@ export default function Application(props) {
         className="sidebar__lhl sidebar--centered"
         src="images/lhl.png"
         alt="Lighthouse Labs"
-      />
+      />{" "}
       </section>
       <section className="schedule">
         { schedule }
