@@ -11,6 +11,15 @@ export default function useApplicationData() {
 
   const setDay = (day) => setState({ ...state, day });
 
+  function spotsRemaining(state, day, operand) {
+    const currentDay = state.days.find((event) => event.name === day);
+    if (operand === "+") {
+      currentDay.spots += 1;
+    } else if (operand === "-") {
+      currentDay.spots -= 1;
+    }
+  }
+
   function bookInterview(id, interview) {
     const appointment = {
       ...state.appointments[id],
@@ -23,7 +32,8 @@ export default function useApplicationData() {
     return axios
       .put(`http://localhost:8001/api/appointments/${id}`, appointment)
       .then(() => {
-         setState(() => ({ ...state, appointments }));
+        spotsRemaining(state, state.day, "-");
+        setState(() => ({ ...state, appointments }));
        });
   };
 
@@ -39,6 +49,7 @@ export default function useApplicationData() {
     return axios
       .delete(`http://localhost:8001/api/appointments/${id}`)
       .then(() => {
+        spotsRemaining(state, state.day, '+');
         setState(() => ({...state, appointments }));
       });
   }
