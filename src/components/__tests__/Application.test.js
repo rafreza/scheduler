@@ -1,11 +1,11 @@
 import React from "react";
+import axios from "axios";
 
 import {
   render,
   cleanup,
   waitForElement,
   fireEvent,
-  prettyDOM,
   getByText,
   getByAltText,
   getAllByTestId,
@@ -55,4 +55,7 @@ describe("Application", () => {
     expect(getByText(day, "no spots remaining")).toBeInTheDocument();
   });
 
+  it("shows the save error when failing to save an appointment", () => {
+    axios.put.mockRejectedValueOnce();
+  });
 });
