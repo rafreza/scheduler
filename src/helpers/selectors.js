@@ -7,7 +7,7 @@ function getAppointmentsForDay(state, day) {
   }
 
   const apps = dayArray[0].appointments;
-
+  
   for (const appointment of Object.values(state.appointments)) {
     if (apps.includes(appointment.id)) {
       dayAppointments.push(appointment);

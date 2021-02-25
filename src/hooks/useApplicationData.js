@@ -11,6 +11,8 @@ export default function useApplicationData() {
 
   const setDay = (day) => setState({ ...state, day });
 
+  // This function gets called whenever an appointment is 
+  // made/deleted and changes the spots remaining accordingly based on the operand
   function spotsRemaining(state, day, operand) {
     const currentDay = state.days.find((event) => event.name === day);
     if (operand === "+") {
@@ -20,6 +22,7 @@ export default function useApplicationData() {
     }
   }
 
+  //books an appointment based on id, makes a put request
   function bookInterview(id, interview) {
     const appointment = {
       ...state.appointments[id],
@@ -36,7 +39,7 @@ export default function useApplicationData() {
         setState(() => ({ ...state, appointments }));
        });
   };
-
+  //deletes an appointment based on id, makes a delete request
   function deleteInterview(id) {
     const appointment = {
       ...state.appointments[id],
