@@ -1,5 +1,10 @@
 # Interview Scheduler
 
+!["Screenshot"](https://github.com/rafreza/scheduler/blob/master/doc/Home.png)
+!["Screenshot"](https://github.com/rafreza/scheduler/blob/master/doc/AddApp.png)
+!["Screenshot"](https://github.com/rafreza/scheduler/blob/master/doc/AppAdded.png)
+!["Screenshot"](https://github.com/rafreza/scheduler/blob/master/doc/DeleteApp.png)
+
 ## Setup
 
 Install dependencies with `npm install`.
