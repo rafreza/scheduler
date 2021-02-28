@@ -57,6 +57,23 @@ export default function useApplicationData() {
       });
   }
 
+  function editInterview(id, interview) {
+    const appointment = {
+      ...state.appointments[id],
+      interview: { ...interview },
+    };
+    const appointments = {
+      ...state.appointments,
+      [id]: appointment,
+    };
+    return axios
+    .put(`http://localhost:8001/api/appointments/${id}`, appointment)
+    .then(() => {
+      spotsRemaining(state, state.day, "0");
+      setState(() => ({ ...state, appointments }));
+    });
+  }
+
   useEffect(() => {
     Promise.all([
       axios.get("http://localhost:8001/api/days"),
@@ -72,5 +89,5 @@ export default function useApplicationData() {
     });
   }, []);
 
-  return { state, setDay, bookInterview, deleteInterview };
+  return { state, setDay, bookInterview, deleteInterview, editInterview };
 }

@@ -15,7 +15,8 @@ export default function Application(props) {
     state,
     setDay,
     bookInterview,
-    deleteInterview
+    deleteInterview,
+    editInterview
   } = useApplicationData();
   
   const schedule = getAppointmentsForDay(state, state.day).map(
@@ -28,6 +29,7 @@ export default function Application(props) {
         interviewers={ getInterviewersForDay(state, state.day) }
         bookInterview={bookInterview}
         deleteInterview={deleteInterview}
+        editInterview={editInterview}
       />
     );
   });

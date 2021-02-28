@@ -46,7 +46,18 @@ export default function Appointment(props) {
       .then(() => transition(EMPTY))
       .catch((error) => transition(ERROR_DELETE, true));
   }
-  
+  function edit(name, interviewer) {
+    transition(SAVE);
+    const interview = {
+      student: name,
+      interviewer
+    }
+    props
+      .editInterview(props.id, interview)
+      .then(() => transition(SHOW))
+      .catch((error) => transition(ERROR_SAVE, true));
+    
+  }
   return (
     <article className="appointment" data-testid="appointment">
       <Header time={props.time} />
@@ -80,7 +91,7 @@ export default function Appointment(props) {
         <Form
           interviewers={props.interviewers}
           bookInterview={props.bookInterview}
-          onSave={save}
+          onSave={edit}
           onCancel={back}
         />
       )}
